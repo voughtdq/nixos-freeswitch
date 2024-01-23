@@ -1,0 +1,13 @@
+diff --git a/src/mod/event_handlers/mod_kazoo/kazoo_ei_utils.c b/src/mod/event_handlers/mod_kazoo/kazoo_ei_utils.c
+index ef45af0ea3..35a8ec9f88 100644
+--- a/src/mod/event_handlers/mod_kazoo/kazoo_ei_utils.c
++++ b/src/mod/event_handlers/mod_kazoo/kazoo_ei_utils.c
+@@ -905,7 +905,7 @@ static void fetch_config_handlers(switch_memory_pool_t *pool)
+ 	} else {
+ 		kazoo_config_handlers(cfg);
+ 		kazoo_globals.config_fetched = 1;
+-		switch_xml_free(xml);
++		// switch_xml_free(xml);
+ 	}
+ 	switch_event_destroy(&params);
+ 

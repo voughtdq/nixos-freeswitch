@@ -8,6 +8,7 @@
 , SystemConfiguration
 
 , modules ? null
+, debug ? false
 , nixosTests
 , erlang
 , spandsp3
@@ -102,7 +103,13 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-LzGqrXzPED3PoCDnrwUmmSQsvlAucYo2gTkwFausM7A=";
   };
 
-  patches = [ ./patches/1338.patch ];
+  dontStrip = debug;
+  separateDebugInfo = debug;
+
+  patches = [ 
+    ./patches/1338.patch 
+    ./patches/patch_kazoo_ei_utils.patch  
+  ];
   
   postPatch = ''
     patchShebangs     libs/libvpx/build/make/rtcd.pl
